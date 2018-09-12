@@ -1,0 +1,59 @@
+<div class="row class">
+    <ng-content></ng-content>
+    <div class="mx-2 mt-2">
+        <input type="checkbox" class="mx-2" (click)="classcheck()" name="class1-stream" id="class1-stream">
+        <label for="class1-stream">Has Stream</label>
+    </div>
+    <div class="mx-2 mt-2">
+        <input type="checkbox" class="mx-2" name="class1-stream" id="class1-stream">
+        <label for="class1-stream">Has Divisions</label>
+    </div>
+    <div class="w-100"></div>
+    <div class="container" [hidden]="class1detail">
+        <p class="lead">Divisions</p>
+        <!-- <select name="" id="" #stream (change)="streamSelect(stream.value)">
+      <option value="science">Science</option>
+      <option value="commerce">Commerce</option>
+      <option value="arts">Arts</option>
+    </select> -->
+        <div style="width: 30%" class="mt-2">
+            <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+            <div class="container">
+            </div>
+            <div class="mx-2 mt-2" [hidden]="scienceVisible">
+                <input type="checkbox" class="mx-2" [checked]="scienceChecked" (click)="ScienceSection()" name="class1-stream" id="class1-science-section">
+                <label for="class1-science-section">Science has sections</label>
+            </div>
+            <div class="container" [hidden]="!scienceChecked">
+                <div>
+                    <angular2-multiselect [data]="DivisiondropdownList" [(ngModel)]="ScienceselectedItems" [settings]="DivisiondropdownSettings"
+                        (onSelect)="ScienceonItemSelect($event)" (onDeSelect)="ScienceOnItemDeSelect($event)" (onSelectAll)="ScienceonSelectAll($event)"
+                        (onDeSelectAll)="ScienceonDeSelectAll($event)"></angular2-multiselect>
+                </div>
+            </div>
+            <div class="mx-2 mt-2" [hidden]="commerceVisible">
+                <input type="checkbox" class="mx-2" [checked]="commerceChecked" (click)="CommerceSection()" name="class1-stream" id="class1-commerce-section">
+                <label for="class1-commerce-section">Commerce has sections</label>
+            </div>
+            <div class="container" [hidden]="!commerceChecked">
+                <div>
+                    <angular2-multiselect [data]="DivisiondropdownList" [(ngModel)]="CommerceselectedItems" [settings]="DivisiondropdownSettings"
+                        (onSelect)="CommerceonItemSelect($event)" (onDeSelect)="CommerceOnItemDeSelect($event)" (onSelectAll)="CommerceonSelectAll($event)"
+                        (onDeSelectAll)="CommerceonDeSelectAll($event)"></angular2-multiselect>
+                </div>
+            </div>
+            <div class="mx-2 mt-2" [hidden]="artsVisible">
+                <input type="checkbox" class="mx-2" [checked]="artsChecked" (click)="ArtsSection()" name="class1-stream" id="class1-commerce-section">
+                <label for="class1-commerce-section">Arts has sections</label>
+            </div>
+            <div class="container" [hidden]="!artsChecked">
+                <div>
+                    <angular2-multiselect [data]="DivisiondropdownList" [(ngModel)]="ScienceselectedItems" [settings]="DivisiondropdownSettings"
+                        (onSelect)="ArtsonItemSelect($event)" (onDeSelect)="ArtsOnItemDeSelect($event)" (onSelectAll)="ArtsonSelectAll($event)"
+                        (onDeSelectAll)="ArtsonDeSelectAll($event)"></angular2-multiselect>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
